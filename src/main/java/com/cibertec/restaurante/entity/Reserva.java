@@ -11,6 +11,9 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
+
+
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
@@ -18,17 +21,17 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class Reserva {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long codreserva;
 	@ManyToOne
 	@JoinColumn(name = "codmesa")
-	private Socio codmesa;
+	private Mesa codmesa;
 	@ManyToOne
 	@JoinColumn(name = "codigoso")
 	private Socio codigoso;
 	@ManyToOne
 	@JoinColumn(name = "codigopro")
-	private Socio codigopro;
+	private Platillos codigopro;
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date fechareserva;
@@ -42,10 +45,10 @@ public class Reserva {
 	public void setCodreserva(Long codreserva) {
 		this.codreserva = codreserva;
 	}
-	public Socio getCodmesa() {
+	public Mesa getCodmesa() {
 		return codmesa;
 	}
-	public void setCodmesa(Socio codmesa) {
+	public void setCodmesa(Mesa codmesa) {
 		this.codmesa = codmesa;
 	}
 	public Socio getCodigoso() {
@@ -54,10 +57,10 @@ public class Reserva {
 	public void setCodigoso(Socio codigoso) {
 		this.codigoso = codigoso;
 	}
-	public Socio getCodigopro() {
+	public Platillos getCodigopro() {
 		return codigopro;
 	}
-	public void setCodigopro(Socio codigopro) {
+	public void setCodigopro(Platillos codigopro) {
 		this.codigopro = codigopro;
 	}
 	public Date getFechareserva() {

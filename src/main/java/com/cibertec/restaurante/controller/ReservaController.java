@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,6 +24,7 @@ import com.cibertec.restaurante.utils.Constantes;
 
 @RestController
 @RequestMapping("/restaurante/reserva")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ReservaController {
 	
 	@Autowired 
@@ -31,9 +33,13 @@ public class ReservaController {
 	@PostMapping("/registraReserva")
 	@ResponseBody
 	public ResponseEntity<Map<String, Object>> insertaReserva(@RequestBody Reserva obj){
+		
+		
 		Map<String, Object> salida = new HashMap<>();
+		System.out.println(obj.getFechareserva());
 		try {
 			Reserva objSalida = reservaservice.insertaActualizaReserva(obj);
+		
 			if(objSalida == null) {
 				salida.put("mensaje", Constantes.MENSAJE_REG_ERROR);
 			}else {
@@ -42,8 +48,11 @@ public class ReservaController {
 		}catch (Exception e) {
 			e.printStackTrace();
 			salida.put("mensaje", Constantes.MENSAJE_REG_ERROR);
-		}
+		} 
+		
 		return ResponseEntity.ok(salida);
+		
+		
 	}
 	
 	@PutMapping("/actualizarReserva")

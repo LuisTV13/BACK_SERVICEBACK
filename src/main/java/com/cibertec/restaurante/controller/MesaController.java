@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cibertec.restaurante.utils.*;
 import com.cibertec.restaurante.entity.Mesa;
-import com.cibertec.restaurante.entity.Socio;
 import com.cibertec.restaurante.service.MesaService;
 
 @RestController
@@ -35,7 +34,7 @@ public class MesaController {
 	public ResponseEntity<Map<String, Object>> insertaMesa(@RequestBody Mesa obj){
 		Map<String, Object> salida = new HashMap<>();
 		try {
-			if(obj.getCodmesa() == 0) {
+			if(obj.getIdtipoest() == 0) {
 				obj.setIdtipoest(1);
 			}
 			Mesa objSalida = mesaservice.insertaActualizaMesa(obj);
