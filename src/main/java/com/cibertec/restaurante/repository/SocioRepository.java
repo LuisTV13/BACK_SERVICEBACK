@@ -11,6 +11,8 @@ public interface SocioRepository   extends JpaRepository<Socio, Integer>{
 	
 	public abstract List<Socio> findByNombresoLike(String nombreso);
 	
+	public abstract List<Socio> findByEstadosoLike(int estadoso);
+	
 	
 
 }

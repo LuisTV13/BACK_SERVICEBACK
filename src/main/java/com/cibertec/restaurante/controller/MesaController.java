@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.cibertec.restaurante.utils.*;
 import com.cibertec.restaurante.entity.Mesa;
+import com.cibertec.restaurante.entity.Socio;
 import com.cibertec.restaurante.service.MesaService;
 
 @RestController
@@ -92,5 +93,20 @@ public class MesaController {
 		return ResponseEntity.ok(lista);
 	}
 	
+	@GetMapping("/listaMesaPorEstadoLike/{nom}")
+	@ResponseBody
+	public ResponseEntity<List<Mesa>> listaMesaPorEstadoLike(@PathVariable("nom") int nom){
+		System.out.println("nom");
+		List<Mesa> lista = null;
+		try {
+				lista = mesaservice.listarPorIdtipoestLike(nom);
 
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ResponseEntity.ok(lista);
+	}
+	
+	
+	
 }

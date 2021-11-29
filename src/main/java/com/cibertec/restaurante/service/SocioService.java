@@ -7,6 +7,7 @@ public interface SocioService {
 	
 	public abstract List<Socio> listaSocio();
 	public abstract Socio insertaActualizaSocio(Socio obj);
-	public abstract List<Socio> listarPorNombresoLike(String nombreso);	
+	public abstract List<Socio> listarPorNombresoLike(String nombreso);
+	public abstract List<Socio> listarPorEstadoLike(int estadoso);	
 
 }

@@ -32,4 +32,10 @@ public class MesaServiceImpl implements MesaService {
 		return mesarepo.findByDescmesaLike(descmesa);
 	}
 
+	@Override
+	public List<Mesa> listarPorIdtipoestLike(int idtipoest) {
+		// TODO Auto-generated method stub
+		return mesarepo.findByIdtipoestLike(idtipoest);
+	}
+
 }

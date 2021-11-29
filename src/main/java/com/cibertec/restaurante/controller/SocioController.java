@@ -90,4 +90,23 @@ public class SocioController {
 		return ResponseEntity.ok(lista);
 	}
 	
+	
+	
+	@GetMapping("/listaSocioPorEstadoLike/{nom}")
+	@ResponseBody
+	public ResponseEntity<List<Socio>> listaSocioPorEstadoLike(@PathVariable("nom") int nom){
+		System.out.println("nom");
+		List<Socio> lista = null;
+		try {
+				lista = socioservice.listarPorEstadoLike(nom);
+
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return ResponseEntity.ok(lista);
+	}
+	
+	
+	
+	
 }

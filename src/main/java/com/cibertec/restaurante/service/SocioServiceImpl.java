@@ -33,6 +33,12 @@ public class SocioServiceImpl  implements  SocioService{
 		// TODO Auto-generated method stub
 		return sociorepo.findByNombresoLike(nombreso);
 	}
+
+	@Override
+	public List<Socio> listarPorEstadoLike(int estadoso) {
+		// TODO Auto-generated method stub
+		return sociorepo.findByEstadosoLike(estadoso);
+	}
 	
 
 }
